@@ -1,6 +1,7 @@
 const chatBox = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
+const thinkingIndicator = document.getElementById("thinking-indicator");
 
 function addMessage(message, className) {
     const p = document.createElement("p");
@@ -11,7 +12,10 @@ function addMessage(message, className) {
 }
 
 async function getHealthBotResponse(userMessage) {
-    addMessage(userMessage, "user-message");
+    addMessage("Du: " + userMessage, "user-message");
+
+    // Vis tænke-animation
+    thinkingIndicator.style.display = "block";
 
     const response = await fetch('/api/healthbot', {
         method: 'POST',
@@ -19,9 +23,12 @@ async function getHealthBotResponse(userMessage) {
         body: JSON.stringify({ message: userMessage })
     });
 
+    // Skjul tænke-animation
+    thinkingIndicator.style.display = "none";
+
     const data = await response.json();
     if (response.ok) {
-        addMessage(data.reply, "bot-message");
+        addMessage("HealthBot: " + data.reply, "bot-message");
     } else {
         addMessage("HealthBot: Noget gik galt! Fejl: " + data.error, "bot-message");
     }
