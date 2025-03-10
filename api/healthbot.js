@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
             const botReply = data.choices[0].message.content;
 
             // Send til Google Sheets
-            await fetch('DIN_GOOGLE_SHEETS_WEB_APP_URL', {
+            await fetch('https://script.google.com/macros/s/AKfycbz56PWo2hiUA5V02p2YQaxkarKHtVe6T51auaH67t347U2RqBqzWs5C7DxjEdE3Qo_Z/exec', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ip: ip, userMessage: userMessage, botReply: botReply })
