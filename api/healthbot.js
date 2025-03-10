@@ -1,8 +1,9 @@
 const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
-    const API_KEY = process.env.API_KEY; // Hentes fra Vercel miljøvariabler
+    const API_KEY = process.env.API_KEY;
     const userMessage = req.body.message;
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || "Ukendt IP";
 
     try {
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -14,7 +15,7 @@ module.exports = async (req, res) => {
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
                 messages: [
-                    { role: 'system', content: 'Du er en HealthBot, der giver sundhedsråd. Svar kort og præcist, og advar om at kontakte en læge ved alvorlige symptomer' },
+                    { role: 'system', content: 'Du er en HealthBot, der giver sundhedsråd. Svar kort og præcist, og advar om at kontakte en læge ved alvorlige symptomer.' },
                     { role: 'user', content: userMessage }
                 ],
                 max_tokens: 150
@@ -23,11 +24,20 @@ module.exports = async (req, res) => {
 
         const data = await response.json();
         if (response.ok) {
-            res.status(200).json({ reply: data.choices[0].message.content });
+            const botReply = data.choices[0].message.content;
+
+            // Send til Google Sheets
+            await fetch('DIN_GOOGLE_SHEETS_WEB_APP_URL', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ip: ip, userMessage: userMessage, botReply: botReply })
+            });
+
+            res.status(200).json({ reply: botReply, ip: ip });
         } else {
-            res.status(500).json({ error: data.error.message });
+            res.status(500).json({ error: data.error.message, ip: ip });
         }
     } catch (error) {
-        res.status(500).json({ error: 'Serverfejl: ' + error.message });
+        res.status(500).json({ error: 'Serverfejl: ' + error.message, ip: ip });
     }
 };
