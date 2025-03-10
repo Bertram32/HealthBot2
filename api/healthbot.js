@@ -27,12 +27,14 @@ module.exports = async (req, res) => {
         if (response.ok) {
             const botReply = data.choices[0].message.content;
 
-            // Send til Google Sheets
-            await fetch(GOOGLE_SHEETS_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ip: ip, userMessage: userMessage, botReply: botReply })
-            });
+            // Send til Google Sheets (hvis konfigureret)
+            if (GOOGLE_SHEETS_URL) {
+                await fetch(GOOGLE_SHEETS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ip: ip, userMessage: userMessage, botReply: botReply })
+                });
+            }
 
             res.status(200).json({ reply: botReply, ip: ip });
         } else {
