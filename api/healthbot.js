@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${API_KEY}`
+                'Authorization': `Bearer ${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}`
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
