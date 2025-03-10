@@ -1,74 +1,140 @@
-/* General Styles */
+/* Generelle stilarter */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #000000; /* Sort baggrund */
+    color: #e7e7e7; /* Meget lysgrå tekst */
     margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Chat Wrapper */
+/* Wrapper til centrering */
 .chat-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    background-color: transparent; /* Ingen baggrund for et rent look */
+    border-radius: 15px;
 }
 
-/* Chat Header */
+/* Header */
 .chat-header {
-    background-color: #0078d4;
-    color: white;
-    padding: 20px;
     text-align: center;
+    padding: 20px 0;
 }
 
 .chat-header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #6e79e4; /* Blå-lilla til overskrift */
+    letter-spacing: 1px;
 }
 
-.chat-header p {
-    margin: 5px 0 0;
-    font-size: 14px;
-}
-
-/* Chat Container */
+/* Chat-container */
 .chat-container {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 100px);
+    padding: 0 20px;
 }
 
-/* Chat Box */
+/* Chat-boks */
 .chat-box {
-    flex-grow: 1;
-    overflow-y: auto;
+    height: 400px;
+    background-color: #3c3c3b; /* Mørkegrå chat-område */
+    border-radius: 15px;
     padding: 20px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #c1c1c1; /* Subtil lysgrå kant */
 }
 
-/* Input Container */
+.chat-box p {
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.user-message {
+    background-color: #5c64b8; /* Mørkere blå-lilla til brugerbeskeder */
+    color: #ffffff; /* Hvid tekst */
+    text-align: right;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #c1c1c1; /* Lysgrå til bot-beskeder */
+    color: #000000; /* Sort tekst for kontrast */
+    text-align: left;
+    margin-right: auto;
+}
+
+/* Input-område */
 .input-container {
     display: flex;
-    padding: 20px;
-    background-color: #f0f0f0;
+    gap: 15px;
+    background-color: #3c3c3b; /* Mørkegrå baggrund */
+    padding: 10px 15px;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    align-items: center;
 }
 
-#user-input {
-    flex-grow: 1;
+textarea {
+    flex: 1;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: transparent; /* Gennemsigtig baggrund */
+    border: none;
+    border-radius: 8px;
     resize: none;
+    font-size: 16px;
+    color: #e7e7e7; /* Meget lysgrå tekst */
+    line-height: 1.5;
+    height: 20px;
 }
 
-#send-btn {
-    margin-left: 10px;
-    padding: 10px 20px;
-    background-color: #0078d4;
-    color: white;
+textarea::placeholder {
+    color: #c1c1c1; /* Lysgrå placeholder */
+}
+
+textarea:focus {
+    outline: none;
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    background-color: #6e79e4; /* Blå-lilla knap */
     border: none;
-    border-radius: 4px;
+    border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5c64b8; /* Mørkere blå-lilla ved hover */
+}
+
+/* Scrollbar styling for et moderne look */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: #000000; /* Sort scrollbar baggrund */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #6e79e4; /* Blå-lilla scrollbar */
+    border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+    background: #5c64b8; /* Mørkere blå-lilla ved hover */
 }
