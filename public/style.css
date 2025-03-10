@@ -1,49 +1,83 @@
+/* Generelle stilarter */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #e7e7e7; /* Meget lysgrå som baggrund */
+    color: #3c3c3b; /* Mørkegrå til tekst */
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
 }
 
+/* Wrapper til centrering */
+.chat-wrapper {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff; /* Hvid som hovedbaggrund */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header */
+.chat-header {
+    background-color: #6e79e4; /* Blå-lilla til header */
+    color: #ffffff; /* Hvid tekst */
+    padding: 15px;
+    text-align: center;
+}
+
+.chat-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.chat-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Chat-container */
 .chat-container {
-    width: 400px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
+/* Chat-boks */
 .chat-box {
-    height: 300px;
+    height: 350px;
+    background-color: #e7e7e7; /* Meget lysgrå til chat-område */
+    border: 1px solid #c1c1c1; /* Lysgrå kant */
+    border-radius: 10px;
+    padding: 15px;
     overflow-y: auto;
-    border: 1px solid #ddd;
-    padding: 10px;
     margin-bottom: 20px;
-    background: #fafafa;
 }
 
 .chat-box p {
-    margin: 5px 0;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
 }
 
 .user-message {
+    background-color: #5c64b8; /* Mørkere blå-lilla til brugerbeskeder */
+    color: #ffffff; /* Hvid tekst */
     text-align: right;
-    color: #007bff;
+    margin-left: auto;
 }
 
 .bot-message {
+    background-color: #c1c1c1; /* Lysgrå til bot-beskeder */
+    color: #000000; /* Sort tekst */
     text-align: left;
-    color: #333;
+    margin-right: auto;
 }
 
+/* Input-område */
 .input-container {
     display: flex;
     gap: 10px;
@@ -51,21 +85,31 @@ h1 {
 
 textarea {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 12px;
+    background-color: #ffffff; /* Hvid baggrund */
+    border: 1px solid #c1c1c1; /* Lysgrå kant */
+    border-radius: 8px;
     resize: none;
+    font-size: 14px;
+    color: #3c3c3b; /* Mørkegrå tekst */
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #6e79e4; /* Blå-lilla fokus */
 }
 
 button {
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
+    padding: 12px 20px;
+    background-color: #6e79e4; /* Blå-lilla knap */
+    color: #ffffff; /* Hvid tekst */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background: #0056b3;
+    background-color: #5c64b8; /* Mørkere blå-lilla ved hover */
 }
