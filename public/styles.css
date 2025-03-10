@@ -45,7 +45,6 @@ body {
     padding: 20px;
     overflow-y: auto;
     margin-bottom: 20px;
-    border: 1px solid #c1c1c1; /* Subtil lysgrå kant */
 }
 
 .chat-box p {
@@ -93,7 +92,6 @@ textarea {
     font-size: 16px;
     color: #e7e7e7; /* Meget lysgrå tekst */
     line-height: 1.5;
-    height: 20px;
 }
 
 textarea::placeholder {
