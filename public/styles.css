@@ -1,8 +1,8 @@
 /* Generelle stilarter */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e7e7e7; /* Meget lysgrå som baggrund */
-    color: #3c3c3b; /* Mørkegrå til tekst */
+    background-color: #000000; /* Sort som hovedbaggrund */
+    color: #e7e7e7; /* Meget lysgrå til tekst */
     margin: 0;
     display: flex;
     justify-content: center;
@@ -14,9 +14,9 @@ body {
 .chat-wrapper {
     width: 100%;
     max-width: 500px;
-    background-color: #ffffff; /* Hvid som hovedbaggrund */
+    background-color: #3c3c3b; /* Mørkegrå som chatbaggrund */
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
@@ -47,7 +47,7 @@ body {
 /* Chat-boks */
 .chat-box {
     height: 350px;
-    background-color: #e7e7e7; /* Meget lysgrå til chat-område */
+    background-color: #000000; /* Sort til chat-område */
     border: 1px solid #c1c1c1; /* Lysgrå kant */
     border-radius: 10px;
     padding: 15px;
@@ -72,7 +72,7 @@ body {
 
 .bot-message {
     background-color: #c1c1c1; /* Lysgrå til bot-beskeder */
-    color: #000000; /* Sort tekst */
+    color: #000000; /* Sort tekst for kontrast */
     text-align: left;
     margin-right: auto;
 }
@@ -86,12 +86,16 @@ body {
 textarea {
     flex: 1;
     padding: 12px;
-    background-color: #ffffff; /* Hvid baggrund */
+    background-color: #3c3c3b; /* Mørkegrå baggrund */
     border: 1px solid #c1c1c1; /* Lysgrå kant */
     border-radius: 8px;
     resize: none;
     font-size: 14px;
-    color: #3c3c3b; /* Mørkegrå tekst */
+    color: #e7e7e7; /* Meget lysgrå tekst */
+}
+
+textarea::placeholder {
+    color: #c1c1c1; /* Lysgrå placeholder */
 }
 
 textarea:focus {
