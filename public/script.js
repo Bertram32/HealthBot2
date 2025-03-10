@@ -11,7 +11,7 @@ function addMessage(message, className) {
 }
 
 async function getHealthBotResponse(userMessage) {
-    addMessage("Du: " + userMessage, "user-message");
+    addMessage(userMessage, "user-message");
 
     const response = await fetch('/api/healthbot', {
         method: 'POST',
@@ -21,7 +21,7 @@ async function getHealthBotResponse(userMessage) {
 
     const data = await response.json();
     if (response.ok) {
-        addMessage("HealthBot: " + data.reply, "bot-message");
+        addMessage(data.reply, "bot-message");
     } else {
         addMessage("HealthBot: Noget gik galt! Fejl: " + data.error, "bot-message");
     }
