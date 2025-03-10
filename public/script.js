@@ -13,7 +13,7 @@ function addMessage(message, className) {
 async function getHealthBotResponse(userMessage) {
     addMessage("Du: " + userMessage, "user-message");
 
-    const response = await fetch('/ask-healthbot', {
+    const response = await fetch('/api/healthbot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage })
