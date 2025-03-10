@@ -1,171 +1,68 @@
-/* Generelle stilarter */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #000000; /* Sort baggrund */
-    color: #e7e7e7; /* Meget lysgrå tekst */
+    font-family: Arial, sans-serif;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
-/* Wrapper til centrering */
 .chat-wrapper {
-    width: 100%;
-    max-width: 600px;
-    background-color: #3c3c3b; /* Mørkegrå chatbaggrund */
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
     overflow: hidden;
 }
 
-/* Header */
 .chat-header {
-    background-color: #000000; /* Sort header */
+    background-color: #0078d4;
+    color: white;
     padding: 20px;
     text-align: center;
-    position: relative;
 }
 
-.header-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Robotarm (simuleret med CSS - kan erstattes med billede) */
-.robot-arm {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(to bottom right, #c1c1c1, #ffffff); /* Lysgrå til hvid gradient */
-    border-radius: 50%;
-    position: relative;
-    margin-bottom: 15px;
-}
-
-.robot-arm::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 60%;
-    width: 50px;
-    height: 10px;
-    background-color: #ffffff; /* Hvid arm */
-    transform: rotate(45deg);
-    border-radius: 5px;
-}
-
-.robot-arm::after {
-    content: '';
-    position: absolute;
-    top: 40%;
-    left: 70%;
-    width: 20px;
-    height: 10px;
-    background-color: #ffffff; /* Hvid finger */
-    transform: rotate(45deg);
-    border-radius: 5px;
-}
-
-/* Overskrifter */
 .chat-header h1 {
     margin: 0;
-    font-size: 28px;
-    color: #6e79e4; /* Blå-lilla til "Kunstig Intelligens (AI)" */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.chat-header h2 {
-    margin: 5px 0;
-    font-size: 22px;
-    color: #e7e7e7; /* Meget lysgrå til "HealthBot" */
-    font-weight: normal;
+    font-size: 24px;
 }
 
 .chat-header p {
     margin: 5px 0 0;
     font-size: 14px;
-    color: #c1c1c1; /* Lysgrå til undertekst */
 }
 
-/* Chat-container */
 .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+}
+
+.chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
     padding: 20px;
 }
 
-/* Chat-boks */
-.chat-box {
-    height: 350px;
-    background-color: #000000; /* Sort chat-område */
-    border: 1px solid #c1c1c1; /* Lysgrå kant */
-    border-radius: 10px;
-    padding: 15px;
-    overflow-y: auto;
-    margin-bottom: 20px;
-}
-
-.chat-box p {
-    margin: 8px 0;
-    padding: 10px;
-    border-radius: 8px;
-    max-width: 80%;
-    word-wrap: break-word;
-}
-
-.user-message {
-    background-color: #5c64b8; /* Mørkere blå-lilla til brugerbeskeder */
-    color: #ffffff; /* Hvid tekst */
-    text-align: right;
-    margin-left: auto;
-}
-
-.bot-message {
-    background-color: #c1c1c1; /* Lysgrå til bot-beskeder */
-    color: #000000; /* Sort tekst */
-    text-align: left;
-    margin-right: auto;
-}
-
-/* Input-område */
 .input-container {
     display: flex;
-    gap: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
 }
 
-textarea {
-    flex: 1;
-    padding: 12px;
-    background-color: #3c3c3b; /* Mørkegrå baggrund */
-    border: 1px solid #c1c1c1; /* Lysgrå kant */
-    border-radius: 8px;
+#user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     resize: none;
-    font-size: 14px;
-    color: #e7e7e7; /* Meget lysgrå tekst */
 }
 
-textarea::placeholder {
-    color: #c1c1c1; /* Lysgrå placeholder */
-}
-
-textarea:focus {
-    outline: none;
-    border-color: #6e79e4; /* Blå-lilla fokus */
-}
-
-button {
-    padding: 12px 20px;
-    background-color: #6e79e4; /* Blå-lilla knap */
-    color: #ffffff; /* Hvid tekst */
+#send-btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #0078d4;
+    color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #5c64b8; /* Mørkere blå-lilla ved hover */
 }
