@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
     const API_KEY = process.env.API_KEY;
+    const GOOGLE_SHEETS_URL = process.env.GOOGLE_SHEETS_URL;
     const userMessage = req.body.message;
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || "Ukendt IP";
 
@@ -27,7 +28,7 @@ module.exports = async (req, res) => {
             const botReply = data.choices[0].message.content;
 
             // Send til Google Sheets
-            await fetch('https://script.google.com/macros/s/AKfycbz56PWo2hiUA5V02p2YQaxkarKHtVe6T51auaH67t347U2RqBqzWs5C7DxjEdE3Qo_Z/exec', {
+            await fetch(GOOGLE_SHEETS_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ip: ip, userMessage: userMessage, botReply: botReply })
