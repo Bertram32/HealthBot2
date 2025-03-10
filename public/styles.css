@@ -1,25 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* Generelle stilarter */
 body {
-    background-color: #000000; /* Sort baggrund */
-    color: #e7e7e7; /* Meget lysgrå tekst */
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: #e7e7e7;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: "Raleway", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: <weight>;
-      font-style: normal;
 }
 
 /* Wrapper til centrering */
 .chat-wrapper {
     width: 100%;
     max-width: 700px;
-    background-color: transparent; /* Ingen baggrund for et rent look */
+    background-color: transparent;
     border-radius: 15px;
 }
 
@@ -33,7 +28,7 @@ body {
     margin: 0;
     font-size: 32px;
     font-weight: 500;
-    color: #6e79e4; /* Blå-lilla til overskrift */
+    color: #6e79e4;
     letter-spacing: 1px;
 }
 
@@ -45,42 +40,64 @@ body {
 /* Chat-boks */
 .chat-box {
     height: 400px;
-    background-color: #3c3c3b; /* Mørkegrå chat-område */
+    background-color: #3c3c3b;
     border-radius: 15px;
     padding: 20px;
     overflow-y: auto;
     margin-bottom: 20px;
+    border: 1px solid #c1c1c1;
+    position: relative;
 }
 
 .chat-box p {
     margin: 10px 0;
-    padding: 18px 18px;
+    padding: 12px 18px;
     border-radius: 15px;
-    max-width: 100%;
+    max-width: 70%;
     word-wrap: break-word;
     font-size: 16px;
     line-height: 1.5;
 }
 
 .user-message {
-    background-color: #5c64b8; /* Mørkere blå-lilla til brugerbeskeder */
-    color: #ffffff; /* Hvid tekst */
+    background-color: #5c64b8;
+    color: #ffffff;
     text-align: right;
     margin-left: auto;
 }
 
 .bot-message {
-    background-color: #c1c1c1; /* Lysgrå til bot-beskeder */
-    color: #000000; /* Sort tekst for kontrast */
+    background-color: #c1c1c1;
+    color: #000000;
     text-align: left;
     margin-right: auto;
+}
+
+/* Tænke-animation */
+.thinking-indicator {
+    display: none; /* Skjult som standard */
+    width: 20px;
+    height: 20px;
+    border: 3px solid #6e79e4; /* Blå-lilla kant */
+    border-top: 3px solid transparent; /* Gennemsigtig top for rotationseffekt */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Input-område */
 .input-container {
     display: flex;
     gap: 15px;
-    background-color: #3c3c3b; /* Mørkegrå baggrund */
+    background-color: #3c3c3b;
     padding: 10px 15px;
     border-radius: 25px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -90,17 +107,18 @@ body {
 textarea {
     flex: 1;
     padding: 10px;
-    background-color: transparent; /* Gennemsigtig baggrund */
+    background-color: transparent;
     border: none;
     border-radius: 8px;
     resize: none;
     font-size: 16px;
-    color: #e7e7e7; /* Meget lysgrå tekst */
+    color: #e7e7e7;
     line-height: 1.5;
+    height: 20px;
 }
 
 textarea::placeholder {
-    color: #c1c1c1; /* Lysgrå placeholder */
+    color: #c1c1c1;
 }
 
 textarea:focus {
@@ -110,7 +128,7 @@ textarea:focus {
 button {
     width: 40px;
     height: 40px;
-    background-color: #6e79e4; /* Blå-lilla knap */
+    background-color: #6e79e4;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -121,28 +139,25 @@ button {
 }
 
 button:hover {
-    background-color: #5c64b8; /* Mørkere blå-lilla ved hover */
+    background-color: #5c64b8;
 }
 
-/* Scrollbar styling for et moderne look */
+/* Scrollbar styling */
 .chat-box::-webkit-scrollbar {
     width: 8px;
 }
 
 .chat-box::-webkit-scrollbar-track {
-    background: #000000; /* Sort scrollbar baggrund */
+    background: #000000;
 }
 
 .chat-box::-webkit-scrollbar-thumb {
-    background: #6e79e4; /* Blå-lilla scrollbar */
+    background: #6e79e4;
     border-radius: 10px;
 }
 
 .chat-box::-webkit-scrollbar-thumb:hover {
-    background: #5c64b8; /* Mørkere blå-lilla ved hover */
+    background: #5c64b8;
 }
 
-p {
-    color: #808080;
-    font-size: 8px;
-}
+p { color: #808080; font-size: 8px; }
