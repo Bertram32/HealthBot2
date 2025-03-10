@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
                 messages: [
-                    { role: 'system', content: 'Du er en Klunk, som giver sundhedsråd. Svar kort og præcist, og advar om at kontakte en læge hvis det er alvorligt' },
+                    { role: 'system', content: 'Du er en HealthBot, der giver sundhedsråd. Svar kort og præcist, og advar om at kontakte en læge ved alvorlige symptomer' },
                     { role: 'user', content: userMessage }
                 ],
                 max_tokens: 150
