@@ -54,9 +54,9 @@ body {
 
 .chat-box p {
     margin: 10px 0;
-    padding: 12px 18px;
+    padding: 18px 18px;
     border-radius: 15px;
-    max-width: 90%;
+    max-width: 100%;
     word-wrap: break-word;
     font-size: 16px;
     line-height: 1.5;
