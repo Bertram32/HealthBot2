@@ -141,3 +141,8 @@ button:hover {
 .chat-box::-webkit-scrollbar-thumb:hover {
     background: #5c64b8; /* Mørkere blå-lilla ved hover */
 }
+
+p {
+    color: #808080;
+    font-size: 15px;
+}
