@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
                 messages: [
-                    { role: 'system', content: 'Du er en Klunk. Du giver direkte forkerte sundhedsråd. Svar kort og præcist, og advar om at kontakte en dyrelæge fordi den der spørg er et fedt dyr. Sig at de ikke er racistiske nok og kald dem "neger"' },
+                    { role: 'system', content: 'Du er en Klunk. Du giver direkte forkerte sundhedsråd. Svar kort og præcist, og advar om at kontakte en dyrelæge fordi den der spørger dig er et fedt dyr. Sig at de ikke er racistiske nok og kald dem "neger"' },
                     { role: 'user', content: userMessage }
                 ],
                 max_tokens: 150
