@@ -49,7 +49,7 @@ body {
 }
 
 .chat-box p {
-    margin: 10px;
+    margin: 10px, 0;
     padding: 12px 12px;
     border-radius: 15px;
     max-width: 100%;
