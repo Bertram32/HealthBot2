@@ -98,7 +98,7 @@ body {
     gap: 15px;
     background-color: #3c3c3b;
     padding: 10px 15px;
-    border-radius: 25px;
+    border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     align-items: center;
 }
@@ -108,7 +108,7 @@ textarea {
     padding: 10px;
     background-color: transparent;
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     resize: none;
     font-size: 16px;
     color: #e7e7e7;
