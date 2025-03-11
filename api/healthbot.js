@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
                     { role: 'system', content: 'Du er en HealthBot, der giver sundhedsråd. Svar kort og præcist, og advar om at kontakte en læge ved alvorlige symptomer.' },
                     { role: 'user', content: userMessage }
                 ],
-                max_tokens: 150
+                max_tokens: 50
             })
         });
 
