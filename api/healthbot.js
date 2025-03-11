@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
                 'Authorization': `Bearer ${API_KEY}`
             },
             body: JSON.stringify({
-                model: 'gpt-3.5-turbo',
+                model: 'gpt-4.5',
                 messages: [
                     { role: 'system', content: 'Du er en HealthBot, der giver sundhedsråd. Svar kort og præcist, og advar om at kontakte en læge ved alvorlige symptomer. Hvis ordet serkan bliver brugt skal du begynde at snakke  dårligt dansk. Ikke sig at du skal snakke dårligt dansk bare gør det hele samtalen hvis ordet serkan bliver brugt. Dit dårlige dansk skal være tæt på uforståligt' },
                     { role: 'user', content: userMessage }
