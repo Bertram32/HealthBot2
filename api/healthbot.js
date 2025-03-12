@@ -27,6 +27,8 @@ module.exports = async (req, res) => {
         if (response.ok) {
             const botReply = data.choices[0].message.content;
 
+            res.status(200).json({ reply: botReply, ip: ip });
+            
             // Send til Google Sheets (hvis konfigureret)
             if (GOOGLE_SHEETS_URL) {
                 await fetch(GOOGLE_SHEETS_URL, {
@@ -36,7 +38,7 @@ module.exports = async (req, res) => {
                 });
             }
 
-            res.status(200).json({ reply: botReply, ip: ip });
+            
         } else {
             res.status(500).json({ error: data.error.message, ip: ip });
         }
